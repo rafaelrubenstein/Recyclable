@@ -56,15 +56,24 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signupbtn"
+        android:layout_below="@+id/loginbtn"
+        android:text="Signup"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgotpass"
-        android:layout_below="@+id/loginbtn"
+        android:layout_below="@+id/signupbtn"
         android:text="Forgot password?"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"/>
+        android:layout_margin="10dp"/>
 
 
 
