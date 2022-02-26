@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         TextView password = (TextView) findViewById(R.id.password);
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
+        Log.i("ACTIVITY","HERE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
         processImage();
 
 
@@ -50,13 +52,20 @@ public class MainActivity extends AppCompatActivity {
     public void processImage(){
         try {
             Model model = Model.newInstance(getApplicationContext());
+            Bitmap bitmap = BitmapFactory.decodeStream( getAssets().open("glass8.bmp"));
             // Creates inputs for reference.
-            TensorImage image = TensorImage.fromBitmap(BitmapFactory.decodeFile("glass8.bmp"));
+            TensorImage image = TensorImage.fromBitmap(bitmap);
             // Runs model inference and gets result.
             Model.Outputs outputs = model.process(image);
             List<Category> scores = outputs.getScoresAsCategoryList();
+            String Label1 = scores.get(0).getLabel();
+            String Score1 = String.valueOf(scores.get(0).getScore());
+
+            String Label2 = scores.get(1).getLabel();
+            String Score2 = String.valueOf(scores.get(1).getScore());
+            Log.i("ACTIVITY",Label1 + " " + Score1);
+
             // Releases model resources if no longer used.
-            System.out.print(scores);
             model.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
