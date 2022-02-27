@@ -1,12 +1,22 @@
 package com.example.hacknyu;
 
 import androidx.annotation.Nullable;
+
 import androidx.annotation.RequiresApi;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,9 +29,14 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
+
+
+import com.google.android.material.button.MaterialButton;
+
 
 import com.example.hacknyu.ml.Model;
 import com.google.android.material.button.MaterialButton;
@@ -35,11 +50,16 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
 public class CameraActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private MaterialButton camerabtn;
     private TextView direction;
+
+
+
+
     private Button gallerybtn;
     private TextView best_matching; // to display labeling
     private TextView second_matching;
@@ -47,6 +67,7 @@ public class CameraActivity extends AppCompatActivity {
 
     // Uri for picking image from gallery
     Uri imageUri;
+
 
 
     @Override
@@ -57,10 +78,13 @@ public class CameraActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         camerabtn = findViewById(R.id.camerabtn);
         direction = findViewById(R.id.direction);
+
+
         gallerybtn = findViewById(R.id.gallerybtn);
         best_matching = findViewById(R.id.bestmatchingtextView);
         second_matching = findViewById(R.id.secondmathchingtextView);
         carbon = findViewById(R.id.carbontextView);
+
 
         if (ContextCompat.checkSelfPermission(CameraActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(CameraActivity.this, new String[]{Manifest.permission.CAMERA}, 101);
@@ -73,6 +97,11 @@ public class CameraActivity extends AppCompatActivity {
                 startActivityForResult(open_camera, 101);
             }
         });
+
+
+
+
+
 
         // gallery button
         gallerybtn.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +116,14 @@ public class CameraActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode == 101){
+            Bitmap bitmap= (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(bitmap);
+        }
+    }
+
 
         if (requestCode == 101){ // Take photo
             Bitmap bitmap= (Bitmap) data.getExtras().get("data");
@@ -155,4 +192,5 @@ public class CameraActivity extends AppCompatActivity {
             carbon.setText("46g of CO2 will be saved by recycling 100g of papers");
         }
     }
+
 }

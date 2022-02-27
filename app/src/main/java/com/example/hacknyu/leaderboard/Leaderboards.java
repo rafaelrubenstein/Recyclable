@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.hacknyu.R;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -23,24 +24,64 @@ public class Leaderboards extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboards);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
         leaderboard = findViewById(R.id.leaderboard);
         leaderboard.setLayoutManager(new LinearLayoutManager(this));
         userArrayList = new ArrayList<>();
         adapter = new UserAdapter(this, userArrayList);
         leaderboard.setAdapter(adapter);
-        leaderboard.addItemDecoration(new DividerItemDecoration(this,LinearLayoutManager.VERTICAL));
+        leaderboard.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         createListData();
 
 
     }
 
-    private void createListData(){
+    private void createListData() {
         //method for adding data to recycler view
 
-        User user  = new User("Rafael",7.9,20.5);
+        User user = new User("User Test", 7.9, 20.5);
         userArrayList.add(user);
-         user  = new User("jason",7.9,20.5);
+        user = new User("User Test", 7.9, 20.5);
         userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+        user = new User("User Test", 7.9, 20.5);
+        userArrayList.add(user);
+
 
         adapter.notifyDataSetChanged();
     }

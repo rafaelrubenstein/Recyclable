@@ -15,6 +15,11 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText email;
@@ -28,6 +33,11 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
+
+
+
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -58,6 +68,10 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void registerUser(String email, String password) {
+
+
+
+
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -70,6 +84,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 }
 
 //Signup is working. Firebase is working
