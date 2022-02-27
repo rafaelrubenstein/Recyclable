@@ -9,7 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hacknyu.leaderboard.Leaderboards;
+
 import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
+
+Button btn1; // this can be removed (button to access leaderboard)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +57,19 @@ public class MainActivity extends AppCompatActivity {
                 String txt_password = password.getText().toString();
                 loginUser(txt_username, txt_password);
 
-            }
-        });
 
+        //Function to for button, this can be removed as well
+//         btn1 = findViewById(R.id.btn1);
+//         btn1.setOnClickListener(view -> {
+//             Intent i = new Intent(MainActivity.this, Leaderboards.class);
+//             startActivity(i);
+//         });
 
-
+//             }
+//         });
 
     }
+
 
     private void loginUser(String username, String password) {
         auth.signInWithEmailAndPassword(username, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
