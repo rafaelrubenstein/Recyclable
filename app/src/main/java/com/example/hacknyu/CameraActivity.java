@@ -43,6 +43,7 @@ public class CameraActivity extends AppCompatActivity {
     private Button gallerybtn;
     private TextView best_matching; // to display labeling
     private TextView second_matching;
+    private TextView carbon;
 
     // Uri for picking image from gallery
     Uri imageUri;
@@ -59,6 +60,7 @@ public class CameraActivity extends AppCompatActivity {
         gallerybtn = findViewById(R.id.gallerybtn);
         best_matching = findViewById(R.id.bestmatchingtextView);
         second_matching = findViewById(R.id.secondmathchingtextView);
+        carbon = findViewById(R.id.carbontextView);
 
         if (ContextCompat.checkSelfPermission(CameraActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(CameraActivity.this, new String[]{Manifest.permission.CAMERA}, 101);
@@ -133,9 +135,24 @@ public class CameraActivity extends AppCompatActivity {
             best_matching.setText(scores.get(0).getLabel() + " : " + String.valueOf(scores.get(0).getScore()) + "%"); // Best Match
             second_matching.setText(scores.get(1).getLabel() + " : " + String.valueOf(scores.get(1).getScore()) + "%"); // Second best match
             // Releases model resources if no longer used.
+            setCarbonText(scores.get(0).getLabel());
             model.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void setCarbonText(String type){
+        if (type.equals("plastic")){
+            carbon.setText("On average, a plastic bottle has 82.8g of CO2");
+        } else if (type.equals("glass")){
+            carbon.setText("67 grams of Co2 will be saved by recycling 100g of glass");
+        } else if (type.equals("cardboard")){
+            carbon.setText("82 grams of Co2 will be saved by recycling 100g of cardboards");
+        } else if (type.equals("metal")){
+            carbon.setText("You are saving 98.7g of CO2 by recycling a single can");
+        } else {
+            carbon.setText("46g of CO2 will be saved by recycling 100g of papers");
         }
     }
 }
