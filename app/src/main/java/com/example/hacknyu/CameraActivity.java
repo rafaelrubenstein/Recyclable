@@ -113,16 +113,13 @@ public class CameraActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        if (requestCode == 101){
-            Bitmap bitmap= (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(bitmap);
-        }
-    }
+
 
 
         if (requestCode == 101){ // Take photo

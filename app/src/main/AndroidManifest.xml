@@ -19,8 +19,7 @@
 
         <activity android:name=".leaderboard.Leaderboards"
             android:exported="false"/>
-        <activity
-            android:name=".RegisterActivity"
+
 
         <activity
             android:name=".RegisterActivity"

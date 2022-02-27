@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    FirebaseAuth auth;
+
 
     Button btn1; // this can be removed (button to access leaderboard)
     @Override
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         });
 
-        MaterialButton signupbtn = (MaterialButton) findViewById(R.id.signupbtn);
+
 
         auth = FirebaseAuth.getInstance();
 
@@ -137,24 +137,13 @@ public class MainActivity extends AppCompatActivity {
              Intent i = new Intent(MainActivity.this, Leaderboards.class);
              startActivity(i);
          });
-      loginUser(txt_username, txt_password);
-
-            }
-        });
-    }
-
-    private void loginUser(String username, String password) {
-        auth.signInWithEmailAndPassword(username, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-            @Override
-            public void onSuccess(AuthResult authResult) {
-                Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, CameraActivity.class));
-                finish();
 
 
             }
-        });
-    }
+
+
+
+
 
 
     private void loginUser(String username, String password) {
