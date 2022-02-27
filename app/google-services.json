@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "619113344855",
+    "project_id": "hacknyu-16bc9",
+    "storage_bucket": "hacknyu-16bc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619113344855:android:42d78860d04f8930df5812",
+        "android_client_info": {
+          "package_name": "com.example.hacknyu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619113344855-t3np8vmuv9mnd3297a1v8o31qtpumas7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwk1Zfg3LCDuEWjuiRTQI8QqnFeZzmqhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619113344855-t3np8vmuv9mnd3297a1v8o31qtpumas7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
