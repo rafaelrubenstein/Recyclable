@@ -55,18 +55,15 @@ Button btn1; // this can be removed (button to access leaderboard)
             public void onClick(View view) {
                 String txt_username = username.getText().toString();
                 String txt_password = password.getText().toString();
-                loginUser(txt_username, txt_password);
-
+                loginUser(txt_username, txt_password); }
+        });
 
         //Function to for button, this can be removed as well
-//         btn1 = findViewById(R.id.btn1);
-//         btn1.setOnClickListener(view -> {
-//             Intent i = new Intent(MainActivity.this, Leaderboards.class);
-//             startActivity(i);
-//         });
-
-//             }
-//         });
+         btn1 = findViewById(R.id.btn1);
+         btn1.setOnClickListener(view -> {
+             Intent i = new Intent(MainActivity.this, Leaderboards.class);
+             startActivity(i);
+         });
 
     }
 
