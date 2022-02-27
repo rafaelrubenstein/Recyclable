@@ -48,22 +48,29 @@
         android:textColorHint="@color/black" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginbtn"
         android:layout_below="@+id/password"
-        android:text="LOGIN"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="20dp"
+        android:text="LOGIN" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/signupbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/signupbtn"
-        android:layout_below="@+id/loginbtn"
-        android:text="Signup"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="5dp"/>
+        android:layout_below="@+id/password"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/loginbtn"
+        android:text="Signup" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,11 +82,17 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"/>
 
-
-
-
-
-
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgotpass"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="159dp"
+        android:text="Button" />
 
 
 </RelativeLayout>
