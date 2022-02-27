@@ -4,15 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.media.ImageReader;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,15 +45,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         TextView username = (TextView) findViewById(R.id.username);
         TextView password = (TextView) findViewById(R.id.password);
-
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
-        Log.i("ACTIVITY","HERE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        processImage();
-
-
     }
 
     public void processImage(){
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             // Runs model inference and gets result.
             Model.Outputs outputs = model.process(image);
             List<Category> scores = outputs.getScoresAsCategoryList();
+
             String Label1 = scores.get(0).getLabel();
             String Score1 = String.valueOf(scores.get(0).getScore());
 
