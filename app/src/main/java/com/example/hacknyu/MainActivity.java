@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView username;
     private TextView password;
 
-    private FirebaseAuth auth;
+    FirebaseAuth auth;
 
     Button btn1; // this can be removed (button to access leaderboard)
     @Override
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(MainActivity.this, Leaderboards.class);
             startActivity(i);
         });
-    }
+
         MaterialButton signupbtn = (MaterialButton) findViewById(R.id.signupbtn);
 
         auth = FirebaseAuth.getInstance();
@@ -93,10 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
     }
 
     private void loginUser(String username, String password) {
