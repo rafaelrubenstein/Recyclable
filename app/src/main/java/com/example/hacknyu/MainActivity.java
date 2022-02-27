@@ -6,14 +6,19 @@ import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
+import android.content.ContentResolver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,8 +41,7 @@ import org.tensorflow.lite.support.label.Category;
 
 public class MainActivity extends AppCompatActivity {
 
-
-Button btn1; // this can be removed (button to access leaderboard)
+    Button btn1; // this can be removed (button to access leaderboard)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,40 +51,14 @@ Button btn1; // this can be removed (button to access leaderboard)
         TextView password = (TextView) findViewById(R.id.password);
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
-        Log.i("ACTIVITY","HERE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        processImage();
-
-
         //Function to for button, this can be removed as well
         btn1 = findViewById(R.id.btn1);
         btn1.setOnClickListener(view -> {
             Intent i = new Intent(MainActivity.this, Leaderboards.class);
             startActivity(i);
         });
-
     }
 
-    public void processImage(){
-        try {
-            Model model = Model.newInstance(getApplicationContext());
-            Bitmap bitmap = BitmapFactory.decodeStream( getAssets().open("glass8.bmp"));
-            // Creates inputs for reference.
-            TensorImage image = TensorImage.fromBitmap(bitmap);
-            // Runs model inference and gets result.
-            Model.Outputs outputs = model.process(image);
-            List<Category> scores = outputs.getScoresAsCategoryList();
-            String Label1 = scores.get(0).getLabel();
-            String Score1 = String.valueOf(scores.get(0).getScore());
 
-            String Label2 = scores.get(1).getLabel();
-            String Score2 = String.valueOf(scores.get(1).getScore());
-            Log.i("ACTIVITY",Label1 + " " + Score1);
 
-            // Releases model resources if no longer used.
-            model.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 }
