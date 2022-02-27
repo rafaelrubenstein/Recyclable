@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private MaterialButton loginbtn;
@@ -39,6 +41,11 @@ Button btn1; // this can be removed (button to access leaderboard)
         MaterialButton signupbtn = (MaterialButton) findViewById(R.id.signupbtn);
 
         auth = FirebaseAuth.getInstance();
+
+
+
+
+
 
         //Creating a button instance that will take user from login screen to a separate screen
         //where they can sign up.
